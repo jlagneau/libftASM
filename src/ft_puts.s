@@ -6,7 +6,7 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/24 18:15:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/21 14:16:30 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/21 14:18:43 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -35,7 +35,7 @@ sym(ft_puts):
 	jnae	sym(end)				; return rax error
 
 	mov		rdi, STDOUT				; write 1st argument (file descriptor)
-	mov		rsi, newline			; write 2nd argument (string to put in fd)
+	mov		rsi, sym(newline)		; write 2nd argument (string to put in fd)
 	mov		rdx, 1					; write 3rd argument (string size)
 
 	mov		rax, SYSCALL(WRITE)		; get syscall write into rax
