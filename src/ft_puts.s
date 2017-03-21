@@ -6,11 +6,12 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/24 18:15:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/21 15:23:01 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/21 19:44:21 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include	"define/define.s"
+%include	"define/macro.s"
 
 section 	.text
 	global	sym(ft_puts)				; int		ft_puts(char *)
@@ -18,36 +19,28 @@ section 	.text
 
 
 sym(ft_puts):
-	mov		rbx, rdi					; put rdi into rbx
+	mov		rbx, rdi					; put the string at rdi into rbx
 
 	call	sym(ft_strlen)				; put rdi string's length into rax
 	mov		rcx, rax					; put rax into rcx
+	push	rcx							; save length
 
-	mov 	rdi, STDOUT					; write 1st argument (file descriptor)
-	mov 	rsi, rbx					; write 2nd argument (string to put in fd)
-	mov 	rdx, rcx					; write 3rd argument (string size)
-	push	rcx
-
-	mov 	rax, SYS_WRITE				; get syscall write into rax
-	syscall
+	s_write STDOUT, rbx, rcx
 
 	cmp		rax, 0						; if rax < 0
-	jnae	sym(end_ft_puts)			; return rax error
+	jnae	end_puts					; return rax error
 
-	mov		rdi, STDOUT					; write 1st argument (file descriptor)
-	mov		rsi, sym(newline_ft_puts)	; write 2nd argument (string to put in fd)
-	mov		rdx, 1						; write 3rd argument (string size)
+    s_write STDOUT, newline_puts, 1
 
-	mov		rax, SYS_WRITE				; get syscall write into rax
-	syscall
+	cmp		rax, 0						; if rax < 0
+	jnae	end_puts					; return rax error
 
-	pop		rcx
-	inc		rcx
-	mov		rax, rcx
+	pop		rcx                 		; get back the length
+	inc		rcx							; increase it
+	mov		rax, rcx					; and store it into rax for return
 
-sym(end_ft_puts):
+end_puts:
 	ret
 
 section		.data
-
-	sym(newline_ft_puts) db EOL
+	newline_puts db EOL
