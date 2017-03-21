@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/03/21 09:20:05 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/03/21 14:15:48 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -28,7 +28,7 @@ DEPSFLAGS = -MD "$(DEPS_PATH)$(notdir $(@:.o=.d))"
 UNAME_S   := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 OS_DEFINE := $(shell cp define/define_linux.s define/define.s)
-CFLAGS    += elf64
+CFLAGS    += elf64 -dELF
 endif
 ifeq ($(UNAME_S),Darwin)
 OS_DEFINE := $(shell cp define/define_macosx.s define/define.s)

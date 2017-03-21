@@ -6,7 +6,7 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/24 18:15:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/21 14:01:57 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/21 14:16:30 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -50,4 +50,4 @@ sym(end):
 
 section		.data
 
-	newline db 	EOL
+	sym(newline) db EOL
