@@ -6,23 +6,21 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/24 18:15:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/21 13:05:30 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/21 14:01:57 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include	"define/define.s"
 
 section 	.text
-	global	ft_puts					; int		ft_puts(char *)
-    global	_ft_puts
-	extern	_ft_strlen				; size_t	ft_strlen(char *)
+	global	sym(ft_puts)			; int		ft_puts(char *)
+	extern	sym(ft_strlen)			; size_t	ft_strlen(char *)
 
 
-ft_puts:
-_ft_puts:
+sym(ft_puts):
 	mov		rbx, rdi				; put rdi into rbx
 
-	call	_ft_strlen				; put rdi string's length into rax
+	call	sym(ft_strlen)			; put rdi string's length into rax
 	mov		rcx, rax				; put rax into rcx
 
 	mov 	rdi, STDOUT				; write 1st argument (file descriptor)
@@ -34,7 +32,7 @@ _ft_puts:
 	syscall
 
 	cmp		rax, 0					; if rax < 0
-	jnae	end						; return rax error
+	jnae	sym(end)				; return rax error
 
 	mov		rdi, STDOUT				; write 1st argument (file descriptor)
 	mov		rsi, newline			; write 2nd argument (string to put in fd)
@@ -47,9 +45,9 @@ _ft_puts:
 	inc		rcx
 	mov		rax, rcx
 
-end:
+sym(end):
 	ret
 
 section		.data
 
-newline db 	EOL
+	newline db 	EOL
