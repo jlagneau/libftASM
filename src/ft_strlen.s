@@ -6,20 +6,22 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/30 01:50:18 by jlagneau          #+#    #+#              ;
-;    Updated: 2016/06/01 18:56:03 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/21 13:06:19 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
-global		ft_strlen 			; size_t ft_strlen(char *)
-
 section		.text
+	global	ft_strlen
+    global	_ft_strlen 			; size_t ft_strlen(char *)
+
 
 ft_strlen:
+_ft_strlen:
 	push	rdi
 	xor		rcx, rcx
 	xor		rax, rax
 	cmp		rdi, 0
-	je		_ft_strlen_end
+	je		end
 	mov		rdi, [rsp]
 	not		rcx					; rcx = 9223372036854775807
 	xor		al, al				; al = 0
@@ -29,5 +31,5 @@ ft_strlen:
 	pop		rdi
 	lea		rax, [rcx-1]
 
-_ft_strlen_end:
+end:
 	ret
