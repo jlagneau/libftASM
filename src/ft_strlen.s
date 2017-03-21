@@ -6,7 +6,7 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/30 01:50:18 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/21 14:07:15 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/21 14:22:15 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -21,7 +21,7 @@ sym(ft_strlen):
 	xor		rcx, rcx
 	xor		rax, rax
 	cmp		rdi, 0
-	je		sym(end)
+	je		sym(end_ft_strlen)
 	mov		rdi, [rsp]
 	not		rcx					; rcx = 9223372036854775807
 	xor		al, al				; al = 0
@@ -31,5 +31,5 @@ sym(ft_strlen):
 	pop		rdi
 	lea		rax, [rcx-1]
 
-sym(end):
+sym(end_ft_strlen):
 	ret
