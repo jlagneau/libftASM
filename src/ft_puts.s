@@ -6,7 +6,7 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/24 18:15:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/21 14:21:32 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/21 15:23:01 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -28,7 +28,7 @@ sym(ft_puts):
 	mov 	rdx, rcx					; write 3rd argument (string size)
 	push	rcx
 
-	mov 	rax, SYSCALL(WRITE)			; get syscall write into rax
+	mov 	rax, SYS_WRITE				; get syscall write into rax
 	syscall
 
 	cmp		rax, 0						; if rax < 0
@@ -38,7 +38,7 @@ sym(ft_puts):
 	mov		rsi, sym(newline_ft_puts)	; write 2nd argument (string to put in fd)
 	mov		rdx, 1						; write 3rd argument (string size)
 
-	mov		rax, SYSCALL(WRITE)			; get syscall write into rax
+	mov		rax, SYS_WRITE				; get syscall write into rax
 	syscall
 
 	pop		rcx
