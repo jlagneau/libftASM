@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/03/22 08:14:23 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/03/22 16:14:15 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -43,11 +43,15 @@ RMFLAGS   = -rf
 
 # Sources files
 SRCS      := $(shell find src -type f | tr '\n' ' ')
-OBJS      = $(addprefix $(OBJS_PATH), $(notdir $(SRCS:.s=.o)))
-DEB_OBJS  = $(addprefix $(OBJS_PATH), $(notdir $(SRCS:.s=_debug.o)))
 
-DEB_OBJS  = $(OBJS:.o=_debug.o)
+OBJS      = $(addprefix $(OBJS_PATH), $(notdir $(SRCS:.s=.o)))
+DEPS	  = $(addprefix $(DEPS_PATH), $(notdir $(SRCS:.s=.d)))
+
+DEB_OBJS  = $(addprefix $(OBJS_PATH), $(notdir $(SRCS:.s=_debug.o)))
 DEB_DEPS  = $(addprefix $(DEPS_PATH), $(notdir $(DEB_OBJS:.o=.d)))
+
+# Phony
+.PHONY: all re clean fclean debug redebug test
 
 # Rules
 $(NAME): CFLAGS += -Ox
@@ -55,7 +59,7 @@ $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 	ranlib $@
 
-$(DEB_NAME): CFLAGS += -F stabs -g
+$(DEB_NAME): CFLAGS += -g
 $(DEB_NAME): $(DEB_OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 	ranlib $@
@@ -72,17 +76,21 @@ debug: $(DEB_NAME)
 
 redebug: fclean debug
 
-test:
-	gcc -Wall -Wextra -Werror tests/test.c -L. -lfts
+test: $(NAME)
+	make -C tests
+	./tests/test
 
 all: $(NAME)
 
 clean:
+	make -C tests clean
 	$(RM) $(RMFLAGS) $(OBJS_PATH) $(DEPS_PATH)
 
 fclean: clean
+	make -C tests fclean
 	$(RM) $(RMFLAGS) $(NAME) $(DEB_NAME)
 
 re: fclean all
 
-.PHONY: all clean debug fclean norme redebug
+-include $(DEPS)
+-include $(DEB_DEPS)
