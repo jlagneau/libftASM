@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   list_test.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlagneau </var/spool/mail/jlagneau>        +#+  +:+       +#+        */
+/*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 08:52:37 by jlagneau          #+#    #+#             */
 /*   Updated: 2017/03/22 14:08:35 by jlagneau         ###   ########.fr       */

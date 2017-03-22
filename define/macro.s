@@ -3,7 +3,7 @@
 ;                                                         :::      ::::::::    ;
 ;    macro.s                                            :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
-;    By: jlagneau </var/spool/mail/jlagneau>        +#+  +:+       +#+         ;
+;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/21 18:44:12 by jlagneau          #+#    #+#              ;
 ;    Updated: 2017/03/21 18:52:37 by jlagneau         ###   ########.fr        ;
