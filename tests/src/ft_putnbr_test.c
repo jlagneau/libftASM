@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_test.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/22 09:14:42 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/29 16:35:57 by jlagneau         ###   ########.fr       */
+/*   Created: 2017/03/23 08:53:10 by jlagneau          #+#    #+#             */
+/*   Updated: 2017/03/29 16:42:44 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include "test.h"
 
-int			ft_putstr_test(void)
+int			ft_putnbr_test(void)
 {
 	int		fd;
 	int		fails;
@@ -22,9 +22,12 @@ int			ft_putstr_test(void)
 	fails = g_fails;
 	if (fd < 0)
 		return (-1);
-	ASSERT(0 == ft_putstr(0))
-	ASSERT(0 == ft_putstr(""))
-	ASSERT(14 == ft_putstr("Hello, World !"))
+	ASSERT(1 == ft_putnbr(0))
+	ASSERT(2 == ft_putnbr(-7))
+	ASSERT(2 == ft_putnbr(42))
+	ASSERT(3 == ft_putnbr(-42))
+	ASSERT(10 == ft_putnbr(2147483647))
+	ASSERT(11 == ft_putnbr(-2147483648))
 	reopen_stdout(fd);
 	return (g_fails - fails);
 }

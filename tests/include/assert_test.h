@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_test.c                                   :+:      :+:    :+:   */
+/*   assert_test.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/22 09:14:42 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/29 16:35:57 by jlagneau         ###   ########.fr       */
+/*   Created: 2017/03/29 16:01:51 by jlagneau          #+#    #+#             */
+/*   Updated: 2017/03/29 16:25:25 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include "test.h"
+#ifndef ASSERT_TEST_H
+# define ASSERT_TEST_H
 
-int			ft_putstr_test(void)
-{
-	int		fd;
-	int		fails;
+# define PRINTL(x)	if (0 > ft_puts(x)) return (-1)
+# define PRINT(x)	if (0 > ft_putstr(x)) return (-1)
+# define ASSERT(x)	if (1) {g_asserts++; if (!(x)) g_fails++;}
 
-	fd = close_stdout();
-	fails = g_fails;
-	if (fd < 0)
-		return (-1);
-	ASSERT(0 == ft_putstr(0))
-	ASSERT(0 == ft_putstr(""))
-	ASSERT(14 == ft_putstr("Hello, World !"))
-	reopen_stdout(fd);
-	return (g_fails - fails);
-}
+int					g_asserts;
+int					g_fails;
+
+#endif
