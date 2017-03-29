@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 08:52:26 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/29 16:51:32 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/03/29 20:43:05 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	print_function_name(char const *s)
 {
 	PRINT("\033[33mTest ");
 	PRINT((char*)s);
-	PRINT("\033[0m ");
+	PRINT("\033[0m");
 	return (0);
 }
 
