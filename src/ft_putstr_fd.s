@@ -6,7 +6,7 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/30 18:08:01 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/30 19:26:11 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/30 22:24:02 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -37,8 +37,6 @@ sym(ft_putstr_fd):
     mov     rax, SYS_WRITE
 
     syscall
-
-    mov     rax, rdx            ; store the length into rax for return
 
 .end:
     nop
