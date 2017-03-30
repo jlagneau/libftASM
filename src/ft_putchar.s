@@ -6,7 +6,7 @@
 ;    By: jlagneau </var/spool/mail/jlagneau>        +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/29 23:41:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/30 16:32:02 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/30 17:46:40 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -22,8 +22,6 @@ sym(ft_putchar):
     mov     rbp, rsp            ; backup the stack pointer into rbp
     and     rsp, -0x10          ; align the stack to 16 bits
 
-    push    rdx                 ; save rdx
-    push    rsi                 ; save rsi
     push    rdi                 ; push the char in parameter onto the stack
 
     mov     rax, SYS_WRITE      ; syscall write
@@ -34,8 +32,6 @@ sym(ft_putchar):
     syscall
 
     pop     rdi                 ; restore rdi
-    pop     rsi                 ; restore rsi
-    pop     rdx                 ; restore rdx
 
 .end:
     mov     rsp, rbp            ; restore stack pointer
