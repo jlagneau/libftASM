@@ -3,7 +3,7 @@
 ;                                                         :::      ::::::::    ;
 ;    ft_isalnum.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
-;    By: jlagneau </var/spool/mail/jlagneau>        +#+  +:+       +#+         ;
+;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/31 00:50:10 by jlagneau          #+#    #+#              ;
 ;    Updated: 2017/03/31 01:00:35 by jlagneau         ###   ########.fr        ;

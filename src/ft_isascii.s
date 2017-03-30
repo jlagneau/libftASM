@@ -3,7 +3,7 @@
 ;                                                         :::      ::::::::    ;
 ;    ft_isascii.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
-;    By: jlagneau </var/spool/mail/jlagneau>        +#+  +:+       +#+         ;
+;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/31 01:10:42 by jlagneau          #+#    #+#              ;
 ;    Updated: 2017/03/31 01:12:04 by jlagneau         ###   ########.fr        ;
