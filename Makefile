@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/03/29 15:59:08 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/03/30 22:28:24 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,7 +20,6 @@ DEPS_PATH = .dep/
 SRCS_PATH = src/
 HEAD_PATH = includes/
 
-CC        = nasm
 CFLAGS    = -f
 DEPSFLAGS = -MD "$(DEPS_PATH)$(notdir $(@:.o=.d))"
 
@@ -66,11 +65,11 @@ $(DEB_NAME): $(DEB_OBJS)
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.s
 	@mkdir -p $(OBJS_PATH) $(DEPS_PATH)
-	$(CC) $(CFLAGS) $(DEPSFLAGS) -o $@ $<
+	nasm $(CFLAGS) $(DEPSFLAGS) -o $@ $<
 
 $(OBJS_PATH)%_debug.o: $(SRCS_PATH)%.s
 	@mkdir -p $(OBJS_PATH) $(DEPS_PATH)
-	$(CC) $(CFLAGS) $(DEPSFLAGS) -o $@ $<
+	nasm $(CFLAGS) $(DEPSFLAGS) -o $@ $<
 
 debug: $(DEB_NAME)
 
