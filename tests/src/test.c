@@ -6,14 +6,13 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 08:52:26 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/29 20:43:05 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/03/30 16:43:22 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include "test.h"
 #include "list_test.h"
-#include <stdio.h>
 
 static int	print_function_name(char const *s)
 {
@@ -38,7 +37,13 @@ static int	print_result(int func)
 	PRINTL("\033[32m===============\033[0m");
 	PRINTL("\033[32m    RESULT\033[0m");
 	PRINTL("\033[32m===============\033[0m");
-	printf("Fonction tested: %d\ntotal assertions: %d\nfailed assertions: %d\n", func, g_asserts, g_fails);
+	PRINT("Fonction tested: \033[33m");
+	ft_putnbr_u(func);
+	PRINT("\033[0m\ntotal assertions: \033[32m");
+	ft_putnbr_u(g_asserts);
+	PRINT("\033[0m\nfailed assertions: \033[31m");
+	ft_putnbr_u(g_fails);
+	PRINTL("\033[0m");
 	return (g_fails);
 }
 
