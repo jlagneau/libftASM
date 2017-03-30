@@ -3,7 +3,7 @@
 ;                                                         :::      ::::::::    ;
 ;    ft_putchar.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
-;    By: jlagneau </var/spool/mail/jlagneau>        +#+  +:+       +#+         ;
+;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/29 23:41:48 by jlagneau          #+#    #+#              ;
 ;    Updated: 2017/03/30 17:46:40 by jlagneau         ###   ########.fr        ;
