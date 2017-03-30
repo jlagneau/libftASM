@@ -1,30 +1,47 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_putnbr_u.s                                      :+:      :+:    :+:    ;
+;    ft_putstr_fd.s                                     :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2017/03/23 09:41:08 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/30 19:33:19 by jlagneau         ###   ########.fr        ;
+;    Created: 2017/03/30 18:08:01 by jlagneau          #+#    #+#              ;
+;    Updated: 2017/03/30 19:26:11 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define.s"
+%include "define/macro.s"
 
 section     .text
-    global  sym(ft_putnbr_u)    ; int   ft_putnbr_u(unsigned int n)
-    extern  sym(ft_putnbr_u_fd) ; int   ft_putnbr_u_fd(unsigned int n, int fd)
+    global  sym(ft_putstr_fd)   ; int       ft_putstr_fd(char *s, int fd)
+    extern  sym(ft_strlen)      ; size_t    ft_strlen(char *s)
 
-sym(ft_putnbr_u):
+sym(ft_putstr_fd):
+    nop
     push    rbp                 ; save rbp for the stack pointer
     mov     rbp, rsp            ; backup the stack pointer into rbp
     and     rsp, -0x10          ; align the stack to 16 bits
 
-    mov     rsi, STDOUT         ; put STDOUT into rsi
+    push    rdi                 ; save rdi
 
-    call    sym(ft_putnbr_u_fd)
+    call    sym(ft_strlen)      ; put rdi string's length into rax
 
+    mov     rdx, rax            ; store string's length into rdx
+    mov     rdi, rsi            ; swap rdi and rsi
+    pop     rsi
+
+    test    rax, rax            ; if string length is 0
+    jz      .end                ; return 0
+
+    mov     rax, SYS_WRITE
+
+    syscall
+
+    mov     rax, rdx            ; store the length into rax for return
+
+.end:
+    nop
     mov     rsp, rbp            ; restore stack pointer
     pop     rbp                 ; restore rbp
     ret

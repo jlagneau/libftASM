@@ -6,15 +6,15 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/29 23:41:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/30 17:46:40 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/30 18:05:03 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define.s"
-%include "define/macro.s"
 
 section     .text
     global  sym(ft_putchar)     ; int   ft_putchar(char c)
+    extern  sym(ft_putchar_fd)  ; int   ft_putchar_fd(char c, int fd)
 
 sym(ft_putchar):
     nop
@@ -22,18 +22,16 @@ sym(ft_putchar):
     mov     rbp, rsp            ; backup the stack pointer into rbp
     and     rsp, -0x10          ; align the stack to 16 bits
 
-    push    rdi                 ; push the char in parameter onto the stack
+    push    rdi                 ; save rdi
+    push    rsi                 ; save rsi
 
-    mov     rax, SYS_WRITE      ; syscall write
-    mov     rdi, 1              ; fd = 1
-    lea     rsi, [rsp]          ; str = get address of the char from the stack
-    mov     rdx, 1              ; length = 1
+    mov     rsi, STDOUT         ; set the fd
 
-    syscall
+    call    sym(ft_putchar_fd)
 
+    pop     rsi                 ; restore rsi
     pop     rdi                 ; restore rdi
 
-.end:
     mov     rsp, rbp            ; restore stack pointer
     pop     rbp                 ; restore rbp
     ret

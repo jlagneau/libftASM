@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/24 07:15:31 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/30 16:38:53 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/03/30 19:27:19 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ int		ft_puts(char *s);
 size_t	ft_strlen(char *s);
 
 int		ft_putchar(char c);
+int		ft_putchar_fd(char c, int fd);
 int		ft_putstr(char *s);
+int		ft_putstr_fd(char *s, int fd);
 int		ft_putnbr_u(unsigned int n);
+int		ft_putnbr_u_fd(unsigned int n, int fd);
 int		ft_putendl(char *s);
+int		ft_putendl_fd(char *s, int fd);
 
 #endif

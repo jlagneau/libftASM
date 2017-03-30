@@ -6,7 +6,7 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/24 18:15:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/29 20:36:42 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/30 19:24:23 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -19,6 +19,7 @@ section     .text
 
 
 sym(ft_puts):
+    nop
     push    rbp                 ; save rbp for the stack pointer
     mov     rbp, rsp            ; backup the stack pointer into rbp
     and     rsp, -0x10          ; align the stack to 16 bits
@@ -31,7 +32,9 @@ sym(ft_puts):
     jmp     .end                ; return rax
 
 .is_null:
-    sys_write STDOUT, .null, .len
+    nop
+
+    sys_write STDOUT, .null, 7
 
     test    rax, rax            ; if rax < 0
     js      .end                ; return rax
@@ -39,13 +42,11 @@ sym(ft_puts):
     xor     rax, rax            ; rax = 0
 
 .end:
+    nop
     mov     rsp, rbp            ; restore stack pointer
     pop     rbp                 ; restore rbp
     ret
 
 section     .data
 
-.null:
-    db      "(null)"
-
-.len equ $ - .null
+.null db    "(null)", 0x0a
