@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/24 07:15:31 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/31 01:18:04 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/03/31 01:29:32 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
+int		ft_isprint(int c);
 
 int		ft_puts(char *s);
 size_t	ft_strlen(char *s);
