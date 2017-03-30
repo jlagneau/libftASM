@@ -6,7 +6,7 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/24 18:15:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/22 16:38:08 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/29 20:36:42 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -19,21 +19,33 @@ section     .text
 
 
 sym(ft_puts):
-    cmp     rdi, 0
-    je      .is_null
+    push    rbp                 ; save rbp for the stack pointer
+    mov     rbp, rsp            ; backup the stack pointer into rbp
+    and     rsp, -0x10          ; align the stack to 16 bits
 
-    call    sym(ft_putendl)     ; call ft_putstr
-    jmp     .end
+    test    rdi, rdi            ; if rdi is a null pointer
+    jz      .is_null            ; goto .is_null
+
+    call    sym(ft_putendl)     ; call ft_putendl
+
+    jmp     .end                ; return rax
 
 .is_null:
-    s_write STDOUT, .null, .len
-    cmp     rax, 0
-    jnae    .end
-    mov     rax, 0
+    sys_write STDOUT, .null, .len
+
+    test    rax, rax            ; if rax < 0
+    js      .end                ; return rax
+
+    xor     rax, rax            ; rax = 0
 
 .end:
+    mov     rsp, rbp            ; restore stack pointer
+    pop     rbp                 ; restore rbp
     ret
 
 section     .data
-    .null   db "(null)"
-    .len    equ $ - .null
+
+.null:
+    db      "(null)"
+
+.len equ $ - .null

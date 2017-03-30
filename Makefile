@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/03/22 16:14:15 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/03/29 15:59:08 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -27,11 +27,11 @@ DEPSFLAGS = -MD "$(DEPS_PATH)$(notdir $(@:.o=.d))"
 # Detect OS
 UNAME_S   := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-OS_DEFINE := $(shell cp define/define_linux.s define/define.s)
+OS_DEFINE := $(shell cp -n define/define_linux.s define/define.s)
 CFLAGS    += elf64 -dELF
 endif
 ifeq ($(UNAME_S),Darwin)
-OS_DEFINE := $(shell cp define/define_macosx.s define/define.s)
+OS_DEFINE := $(shell cp -n define/define_macosx.s define/define.s)
 CFLAGS    += macho64
 endif
 
@@ -78,7 +78,6 @@ redebug: fclean debug
 
 test: $(NAME)
 	make -C tests
-	./tests/test
 
 all: $(NAME)
 

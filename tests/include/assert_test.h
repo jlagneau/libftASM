@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   assert_test.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/24 07:15:31 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/30 16:38:53 by jlagneau         ###   ########.fr       */
+/*   Created: 2017/03/29 16:01:51 by jlagneau          #+#    #+#             */
+/*   Updated: 2017/03/29 16:25:25 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <string.h>
+#ifndef ASSERT_TEST_H
+# define ASSERT_TEST_H
 
-int		ft_puts(char *s);
-size_t	ft_strlen(char *s);
+# define PRINTL(x)	if (0 > ft_puts(x)) return (-1)
+# define PRINT(x)	if (0 > ft_putstr(x)) return (-1)
+# define ASSERT(x)	if (1) {g_asserts++; if (!(x)) g_fails++;}
 
-int		ft_putchar(char c);
-int		ft_putstr(char *s);
-int		ft_putnbr_u(unsigned int n);
-int		ft_putendl(char *s);
+int					g_asserts;
+int					g_fails;
 
 #endif

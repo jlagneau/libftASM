@@ -6,11 +6,11 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/31 19:38:19 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/21 15:24:26 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/29 20:38:52 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define_global.s"
 
 ;; MAC OS
-%define	SYS_WRITE		0x2000004
+%define SYS_WRITE       0x2000004

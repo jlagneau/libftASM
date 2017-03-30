@@ -6,7 +6,7 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/30 01:50:18 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/22 13:40:15 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/29 20:06:54 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -20,8 +20,8 @@ sym(ft_strlen):
     xor     rcx, rcx        ; rcx = 0
     not     rcx             ; rcx = 9223372036854775807
 
-    cmp     rdi, 0          ; if the string in rdi a bad pointer
-    je      .end            ; return rax
+    test    rdi, rdi        ; if the string in rdi a null pointer
+    jz      .end            ; return 0
 
     cld                     ; clear the direction flag
     repne   scasb           ; increment the string ptr in rdi until it find

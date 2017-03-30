@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/21 08:29:58 by jlagneau          #+#    #+#              #
-#    Updated: 2017/03/22 16:16:26 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/03/29 20:48:10 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -34,6 +34,12 @@ LDFLAGS   = -L$(LIB_PATH)
 LDLIBS    =
 DEPSFLAGS = -MMD -MF"$(DEPS_PATH)$(notdir $(@:.o=.d))"
 
+# Detect OS
+UNAME_S   := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+LDFLAGS    += -Wl,-no_pie
+endif
+
 # Files
 SRCS     := $(shell find src -type f)
 
@@ -47,6 +53,7 @@ DEB_DEPS  = $(addprefix $(DEPS_PATH), $(notdir $(DEB_OBJS:.o=.d)))
 .PHONY: all clean fclean norme re redebug
 
 # Rules
+$(NAME): CFLAGS += -O3
 $(NAME): LDLIBS += -lfts
 $(NAME): $(OBJS)
 	$(CC) $^ $(LDFLAGS) $(LDLIBS) -o $@

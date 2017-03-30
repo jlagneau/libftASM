@@ -6,11 +6,11 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/31 20:46:54 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/21 15:23:55 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/29 20:39:01 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define_global.s"
 
 ;; LINUX
-%define	SYS_WRITE		0x01
+%define SYS_WRITE       0x01

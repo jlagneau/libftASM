@@ -6,26 +6,25 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 09:14:42 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/22 17:02:11 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/03/29 16:35:57 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include "test.h"
 
-int		ft_putstr_test(void)
+int			ft_putstr_test(void)
 {
 	int		fd;
+	int		fails;
 
 	fd = close_stdout();
+	fails = g_fails;
 	if (fd < 0)
 		return (-1);
-	if (0 != ft_putstr(0))
-		return (1);
-	else if (0 != ft_putstr(""))
-		return (2);
-	else if (14 != ft_putstr("Hello, World !"))
-		return (3);
+	ASSERT(0 == ft_putstr(0))
+	ASSERT(0 == ft_putstr(""))
+	ASSERT(14 == ft_putstr("Hello, World !"))
 	reopen_stdout(fd);
-	return (0);
+	return (g_fails - fails);
 }

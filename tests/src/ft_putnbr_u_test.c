@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putnbr_u_test.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/10/24 07:15:31 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/30 16:38:53 by jlagneau         ###   ########.fr       */
+/*   Created: 2017/03/23 08:53:10 by jlagneau          #+#    #+#             */
+/*   Updated: 2017/03/30 16:39:52 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <string.h>
+#include <libft.h>
+#include "test.h"
 
-int		ft_puts(char *s);
-size_t	ft_strlen(char *s);
+int			ft_putnbr_u_test(void)
+{
+	int		fd;
+	int		fails;
 
-int		ft_putchar(char c);
-int		ft_putstr(char *s);
-int		ft_putnbr_u(unsigned int n);
-int		ft_putendl(char *s);
-
-#endif
+	fd = close_stdout();
+	fails = g_fails;
+	if (fd < 0)
+		return (-1);
+	ASSERT(1 == ft_putnbr_u(0))
+	ASSERT(1 == ft_putnbr_u(7))
+	ASSERT(2 == ft_putnbr_u(42))
+	ASSERT(10 == ft_putnbr_u(2147483647))
+	ASSERT(10 == ft_putnbr_u(3000000000))
+	reopen_stdout(fd);
+	return (g_fails - fails);
+}
