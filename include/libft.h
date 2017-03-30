@@ -6,13 +6,16 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/24 07:15:31 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/30 19:27:19 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/03/31 00:05:52 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
 
 int		ft_puts(char *s);
 size_t	ft_strlen(char *s);
