@@ -6,43 +6,27 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/21 19:57:45 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/29 20:37:19 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/30 19:19:20 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include    "define/define.s"
-%include    "define/macro.s"
 
 section     .text
-    global  sym(ft_putendl)     ; int   ft_putendl(char *)
-    extern  sym(ft_putstr)      ; int   ft_putstr(char *)
+    global  sym(ft_putendl)     ; int   ft_putendl(char *s)
+    extern  sym(ft_putendl_fd)  ; int   ft_putendl(char *s, int fd)
 
 
 sym(ft_putendl):
+    nop
     push    rbp                 ; save rbp for the stack pointer
     mov     rbp, rsp            ; backup the stack pointer into rbp
     and     rsp, -0x10          ; align the stack to 16 bits
 
-    call    sym(ft_putstr)      ; call ft_putstr
-    test    rax, rax            ; if rax < 0
-    js      .end                ; return rax error
+    mov     rsi, STDOUT         ; put STDOUT in rsi
 
-    push    rax                 ; store the length from rax
+    call    sym(ft_putendl_fd)
 
-    sys_write STDOUT, .newline, 1
-
-    test    rax, rax            ; if rax < 0
-    js      .end                ; return rax error
-
-    pop     rax                 ; restore rax
-    inc     rax                 ; and increment it
-
-.end:
     mov     rsp, rbp            ; restore stack pointer
     pop     rbp                 ; restore rbp
     ret
-
-section     .data
-
-.newline:
-    db      EOL

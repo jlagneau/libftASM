@@ -1,12 +1,12 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_puts.s                                          :+:      :+:    :+:    ;
+;    ft_putendl_fd.s                                    :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/10/24 18:15:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/30 19:24:23 by jlagneau         ###   ########.fr        ;
+;    Created: 2017/03/30 19:02:51 by jlagneau          #+#    #+#              ;
+;    Updated: 2017/03/30 19:21:06 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -14,32 +14,38 @@
 %include    "define/macro.s"
 
 section     .text
-    global  sym(ft_puts)        ; int   ft_puts(char *)
-    extern  sym(ft_putendl)     ; int   ft_putendl(char *)
+    global  sym(ft_putendl_fd)  ; int   ft_putendl(char *s, int fd)
+    extern  sym(ft_putstr_fd)   ; int   ft_putstr(char *s, int fd)
 
 
-sym(ft_puts):
+sym(ft_putendl_fd):
     nop
     push    rbp                 ; save rbp for the stack pointer
     mov     rbp, rsp            ; backup the stack pointer into rbp
     and     rsp, -0x10          ; align the stack to 16 bits
 
-    test    rdi, rdi            ; if rdi is a null pointer
-    jz      .is_null            ; goto .is_null
+    push    rdi                 ; save rdi
+    push    rsi                 ; save rsi
 
-    call    sym(ft_putendl)     ; call ft_putendl
+    call    sym(ft_putstr_fd)   ; call ft_putstr_fd
 
-    jmp     .end                ; return rax
-
-.is_null:
-    nop
-
-    sys_write STDOUT, .null, 7
+    pop     rdi                 ; swap rdi and rsi
+    pop     rsi
 
     test    rax, rax            ; if rax < 0
-    js      .end                ; return rax
+    js      .end                ; return rax error
 
-    xor     rax, rax            ; rax = 0
+    push    rax                 ; store the length from rax
+
+    sys_write rdi, .nl, 1
+
+    pop     rcx                 ; restore the length into rcx
+
+    test    rax, rax            ; if rax < 0
+    js      .end                ; return rax error
+
+    mov     rax, rcx            ; move the length into rax for return
+    inc     rax                 ; and increment it
 
 .end:
     nop
@@ -49,4 +55,4 @@ sym(ft_puts):
 
 section     .data
 
-.null db    "(null)", 0x0a
+.nl db      EOL

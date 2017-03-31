@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/21 08:29:58 by jlagneau          #+#    #+#              #
-#    Updated: 2017/03/29 20:48:10 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/03/30 22:25:45 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,7 +24,6 @@ OBJS_PATH = .obj/
 DEPS_PATH = .dep/
 
 # Exec
-CC        = gcc
 RM        = rm -rf
 
 # Flags

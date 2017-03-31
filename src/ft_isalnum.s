@@ -1,30 +1,36 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_putnbr_u.s                                      :+:      :+:    :+:    ;
+;    ft_isalnum.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2017/03/23 09:41:08 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/30 19:33:19 by jlagneau         ###   ########.fr        ;
+;    Created: 2017/03/31 00:50:10 by jlagneau          #+#    #+#              ;
+;    Updated: 2017/03/31 01:00:35 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define.s"
 
 section     .text
-    global  sym(ft_putnbr_u)    ; int   ft_putnbr_u(unsigned int n)
-    extern  sym(ft_putnbr_u_fd) ; int   ft_putnbr_u_fd(unsigned int n, int fd)
+    global  sym(ft_isalnum)     ; int ft_isalnum(int n)
+    extern  sym(ft_isalpha)     ; int ft_isalpha(int n)
+    extern  sym(ft_isdigit)     ; int ft_isdigit(int n)
 
-sym(ft_putnbr_u):
+sym(ft_isalnum):
+    nop
     push    rbp                 ; save rbp for the stack pointer
     mov     rbp, rsp            ; backup the stack pointer into rbp
     and     rsp, -0x10          ; align the stack to 16 bits
 
-    mov     rsi, STDOUT         ; put STDOUT into rsi
+    call    sym(ft_isalpha)
 
-    call    sym(ft_putnbr_u_fd)
+    test    rax, rax
+    jnz     .end
 
+    call    sym(ft_isdigit)
+
+.end:
     mov     rsp, rbp            ; restore stack pointer
     pop     rbp                 ; restore rbp
     ret
