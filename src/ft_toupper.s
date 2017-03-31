@@ -6,7 +6,7 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/31 01:44:18 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/31 01:56:29 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/03/31 01:59:45 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -22,7 +22,7 @@ sym(ft_toupper):
     cmp     rdi, 0x7A           ; if rdi > 'z'
     jg      .false
     mov     rax, rdi            ; store rdi into rax
-    sub     rax, 0x20           ; add 32 to rax
+    sub     rax, 0x20           ; substract 32 to rax
     jmp     .end
 
 .false:
