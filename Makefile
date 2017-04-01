@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/03/31 07:57:02 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/04/01 16:06:36 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -89,7 +89,7 @@ clean:
 
 fclean: clean
 	make -C tests fclean
-	$(RM) $(RMFLAGS) $(NAME) $(DEB_NAME)
+	$(RM) $(RMFLAGS) $(NAME) $(DEB_NAME) define/define.s
 
 re: fclean all
 
