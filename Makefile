@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/03/30 22:28:24 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/03/31 07:57:02 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -28,10 +28,12 @@ UNAME_S   := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 OS_DEFINE := $(shell cp -n define/define_linux.s define/define.s)
 CFLAGS    += elf64 -dELF
+STRPFLAGS += --strip-unneeded
 endif
 ifeq ($(UNAME_S),Darwin)
 OS_DEFINE := $(shell cp -n define/define_macosx.s define/define.s)
 CFLAGS    += macho64
+STRPFLAGS += -x
 endif
 
 AR        = ar
@@ -66,6 +68,7 @@ $(DEB_NAME): $(DEB_OBJS)
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.s
 	@mkdir -p $(OBJS_PATH) $(DEPS_PATH)
 	nasm $(CFLAGS) $(DEPSFLAGS) -o $@ $<
+	@strip $(STRPFLAGS) $@ -o $@
 
 $(OBJS_PATH)%_debug.o: $(SRCS_PATH)%.s
 	@mkdir -p $(OBJS_PATH) $(DEPS_PATH)

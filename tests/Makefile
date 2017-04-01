@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/21 08:29:58 by jlagneau          #+#    #+#              #
-#    Updated: 2017/03/30 22:25:45 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/03/31 09:48:04 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -57,7 +57,7 @@ $(NAME): LDLIBS += -lfts
 $(NAME): $(OBJS)
 	$(CC) $^ $(LDFLAGS) $(LDLIBS) -o $@
 
-debug: CFLAGS += -g3
+debug: CFLAGS += -g3 -fno-inline
 debug: LDLIBS += -lfts_debug
 debug: $(DEB_OBJS)
 	$(CC) $^ $(LDFLAGS) $(LDLIBS) -o $@
