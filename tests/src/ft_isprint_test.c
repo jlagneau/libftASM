@@ -18,14 +18,14 @@ int			ft_isprint_test(void)
 	int		fails;
 
 	fails = g_fails;
-	ASSERT(1 == ft_isprint('0'))
-	ASSERT(1 == ft_isprint('9'))
-	ASSERT(1 == ft_isprint('5'))
-	ASSERT(1 == ft_isprint('!'))
-	ASSERT(1 == ft_isprint('*'))
-	ASSERT(1 == ft_isprint(' '))
-	ASSERT(0 == ft_isprint(-1))
-	ASSERT(0 == ft_isprint('\n'))
-	ASSERT(0 == ft_isprint(128))
+	ASSERT(1 == ft_isprint('0'));
+	ASSERT(1 == ft_isprint('9'));
+	ASSERT(1 == ft_isprint('5'));
+	ASSERT(1 == ft_isprint('!'));
+	ASSERT(1 == ft_isprint('*'));
+	ASSERT(1 == ft_isprint(' '));
+	ASSERT(0 == ft_isprint(-1));
+	ASSERT(0 == ft_isprint('\n'));
+	ASSERT(0 == ft_isprint(128));
 	return (g_fails - fails);
 }

@@ -18,11 +18,11 @@ int			ft_isdigit_test(void)
 	int		fails;
 
 	fails = g_fails;
-	ASSERT(1 == ft_isdigit('0'))
-	ASSERT(1 == ft_isdigit('9'))
-	ASSERT(1 == ft_isdigit('5'))
-	ASSERT(0 == ft_isdigit('!'))
-	ASSERT(0 == ft_isdigit('*'))
-	ASSERT(0 == ft_isdigit('\n'))
+	ASSERT(1 == ft_isdigit('0'));
+	ASSERT(1 == ft_isdigit('9'));
+	ASSERT(1 == ft_isdigit('5'));
+	ASSERT(0 == ft_isdigit('!'));
+	ASSERT(0 == ft_isdigit('*'));
+	ASSERT(0 == ft_isdigit('\n'));
 	return (g_fails - fails);
 }

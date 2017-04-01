@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/29 23:52:34 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/30 00:17:10 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/03/31 09:58:51 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@ int			ft_putchar_test(void)
 
 	fd = close_stdout();
 	fails = g_fails;
-	ASSERT(1 == ft_putchar('*'))
-	ASSERT(1 == ft_putchar('A'))
+	ASSERT(1 == ft_putchar('*'));
+	ASSERT(1 == ft_putchar('A'));
+	ASSERT(1 == ft_putchar('z'));
+	ASSERT(1 == ft_putchar('7'));
+	ASSERT(1 == ft_putchar('~'));
+	ASSERT(1 == ft_putchar('\n'));
+	ASSERT(1 == ft_putchar(' '));
 	reopen_stdout(fd);
 	return (g_fails - fails);
 }

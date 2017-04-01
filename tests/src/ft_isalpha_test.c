@@ -18,14 +18,14 @@ int			ft_isalpha_test(void)
 	int		fails;
 
 	fails = g_fails;
-	ASSERT(1 == ft_isalpha('Z'))
-	ASSERT(1 == ft_isalpha('A'))
-	ASSERT(1 == ft_isalpha('a'))
-	ASSERT(1 == ft_isalpha('z'))
-	ASSERT(1 == ft_isalpha('e'))
-	ASSERT(1 == ft_isalpha('X'))
-	ASSERT(0 == ft_isalpha('*'))
-	ASSERT(0 == ft_isalpha('^'))
-	ASSERT(0 == ft_isalpha('@'))
+	ASSERT(1 == ft_isalpha('Z'));
+	ASSERT(1 == ft_isalpha('A'));
+	ASSERT(1 == ft_isalpha('a'));
+	ASSERT(1 == ft_isalpha('z'));
+	ASSERT(1 == ft_isalpha('e'));
+	ASSERT(1 == ft_isalpha('X'));
+	ASSERT(0 == ft_isalpha('*'));
+	ASSERT(0 == ft_isalpha('^'));
+	ASSERT(0 == ft_isalpha('@'));
 	return (g_fails - fails);
 }

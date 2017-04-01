@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_test.c                                  :+:      :+:    :+:   */
+/*   ft_strcpy_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/22 09:15:18 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/29 16:39:08 by jlagneau         ###   ########.fr       */
+/*   Created: 2017/04/01 01:09:11 by jlagneau          #+#    #+#             */
+/*   Updated: 2017/04/01 02:47:42 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <libft.h>
 #include "test.h"
 
-int			ft_putendl_test(void)
+int			ft_strcpy_test(void)
 {
-	int		fd;
 	int		fails;
+	char	*s;
 
-	fd = close_stdout();
 	fails = g_fails;
-	if (fd < 0)
-		return (-1);
-	ASSERT(1 == ft_putendl(0));
-	ASSERT(1 == ft_putendl(""));
-	ASSERT(15 == ft_putendl("Hello, World !"));
-	reopen_stdout(fd);
+	s = ft_strnew(14);
+	ASSERT(0 == ft_strcmp("Hello, World !", ft_strcpy(s, "Hello, World !")));
+	ASSERT(0 == ft_strcmp("Ha", ft_strcpy(s, "Ha")));
+	ASSERT(0 == ft_strcmp("!", ft_strcpy(s, "!")));
+	ASSERT(0 == ft_strcmp("", ft_strcpy(s, "")));
+	free(s);
 	return (g_fails - fails);
 }

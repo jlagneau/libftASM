@@ -18,14 +18,14 @@ int			ft_toupper_test(void)
 	int		fails;
 
 	fails = g_fails;
-	ASSERT('A' == ft_toupper('a'))
-	ASSERT('Z' == ft_toupper('z'))
-	ASSERT('K' == ft_toupper('k'))
-	ASSERT('A' == ft_toupper('A'))
-	ASSERT('Z' == ft_toupper('Z'))
-	ASSERT('H' == ft_toupper('H'))
-	ASSERT('*' == ft_toupper('*'))
-	ASSERT('0' == ft_toupper('0'))
-	ASSERT('\n' == ft_toupper('\n'))
+	ASSERT('A' == ft_toupper('a'));
+	ASSERT('Z' == ft_toupper('z'));
+	ASSERT('K' == ft_toupper('k'));
+	ASSERT('A' == ft_toupper('A'));
+	ASSERT('Z' == ft_toupper('Z'));
+	ASSERT('H' == ft_toupper('H'));
+	ASSERT('*' == ft_toupper('*'));
+	ASSERT('0' == ft_toupper('0'));
+	ASSERT('\n' == ft_toupper('\n'));
 	return (g_fails - fails);
 }

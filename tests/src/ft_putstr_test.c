@@ -22,9 +22,9 @@ int			ft_putstr_test(void)
 	fails = g_fails;
 	if (fd < 0)
 		return (-1);
-	ASSERT(0 == ft_putstr(0))
-	ASSERT(0 == ft_putstr(""))
-	ASSERT(14 == ft_putstr("Hello, World !"))
+	ASSERT(0 == ft_putstr(0));
+	ASSERT(0 == ft_putstr(""));
+	ASSERT(14 == ft_putstr("Hello, World !"));
 	reopen_stdout(fd);
 	return (g_fails - fails);
 }
