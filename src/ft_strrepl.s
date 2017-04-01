@@ -6,24 +6,23 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/04/01 01:59:32 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/01 03:37:04 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/01 04:51:17 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define.s"
 
+global	sym(ft_strrepl)
+
 section		.text
-    global	sym(ft_strrepl)
 
 sym(ft_strrepl):
     nop
-
     xor		rcx, rcx            ; rcx = 0
     xor		r8, r8              ; r8 = 0
 
 .loop:
     nop
-
     mov		r8b, [rdi + rcx]    ; r8 = s[rcx]
 
     test	r8, r8              ; if r8 == 0
