@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 08:52:26 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/30 16:43:22 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/04/01 17:55:45 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ static int	print_result(int func)
 	PRINTL("\033[32m    RESULT\033[0m");
 	PRINTL("\033[32m===============\033[0m");
 	PRINT("Fonction tested: \033[33m");
-	ft_putnbr_u(func);
+	ft_putnbr(func);
 	PRINT("\033[0m\ntotal assertions: \033[32m");
-	ft_putnbr_u(g_asserts);
+	ft_putnbr(g_asserts);
 	PRINT("\033[0m\nfailed assertions: \033[31m");
-	ft_putnbr_u(g_fails);
+	ft_putnbr(g_fails);
 	PRINTL("\033[0m");
 	return (g_fails);
 }
@@ -51,6 +51,7 @@ int			main(void)
 {
 	int		i;
 	int		ret;
+
 
 	i = 0;
 	if (init_tests())
