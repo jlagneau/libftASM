@@ -2,13 +2,19 @@
 
 [![Build Status](https://travis-ci.org/jlagneau/libftASM.svg?branch=master)](https://travis-ci.org/jlagneau/libftASM)
 
-Another version of the Libft wrote in x86ASM 64bits
+:neckbeard: Another version of the Libft wrote in x86_64bits NASM assembly
 
 ---
 
 ## Installation
 
-    make test
+To compile
+
+    make
+
+To test the library, run:
+
+    make test && ./tests/test
 
 There's no make install. Copy the file manually if you need to.
 
