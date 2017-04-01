@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/24 07:15:31 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/04/01 02:38:11 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/04/01 18:38:57 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int		ft_putchar(char c);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr(const char *s);
 int		ft_putstr_fd(const char *s, int fd);
-int		ft_putnbr_u(unsigned int n);
-int		ft_putnbr_u_fd(unsigned int n, int fd);
+int		ft_putnbr(long n);
+int		ft_putnbr_fd(long n, int fd);
 int		ft_putendl(const char *s);
 int		ft_putendl_fd(const char *s, int fd);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
