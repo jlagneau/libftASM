@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 09:15:18 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/03/29 16:39:08 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/04/01 04:49:29 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int			ft_putendl_test(void)
 	fails = g_fails;
 	if (fd < 0)
 		return (-1);
-	ASSERT(1 == ft_putendl(0));
 	ASSERT(1 == ft_putendl(""));
+	ASSERT(2 == ft_putendl("\n"));
 	ASSERT(15 == ft_putendl("Hello, World !"));
 	reopen_stdout(fd);
 	return (g_fails - fails);

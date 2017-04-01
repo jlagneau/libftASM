@@ -6,21 +6,21 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/04/01 01:18:54 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/01 02:04:56 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/01 04:50:38 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define.s"
 
+global  sym(ft_strnew)
+extern  sym(ft_bzero)
+extern  sym(malloc)
+
 section     .text
-    global  sym(ft_strnew)      ; char *ft_strnew(size_t n)
-    extern  sym(ft_bzero)       ; void ft_bzero(size_t n)
-    extern  sym(malloc)         ; void *malloc(size_t n)
 
 sym(ft_strnew):
     nop
-
-    inc     rdi                 ; n + 1 for the char NUL
+    inc     rdi                 ; n + 1 for char NUL
     xor     rax, rax            ; rax = 0
     push    rdi                 ; save n
 

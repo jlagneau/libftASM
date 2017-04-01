@@ -6,18 +6,18 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/31 10:04:50 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/31 22:33:33 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/01 04:35:14 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define.s"
 
+global  sym(ft_memcpy)
+
 section     .text
-    global  sym(ft_memcpy)      ; void *ft_memcpy(void *d, void *s, size_t n)
 
 sym(ft_memcpy):
     nop
-
     push    rdi                 ; save d ptr
     mov     rcx, rdx            ; rcx = n
 

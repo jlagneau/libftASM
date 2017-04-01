@@ -6,14 +6,15 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/31 05:22:36 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/01 01:27:07 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/01 04:26:30 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include    "define/define.s"
 
+global  sym(ft_memset)
+
 section     .text
-    global  sym(ft_memset)      ; void *ft_memset(void *s, int c, size_t n)
 
 sym(ft_memset):
     nop

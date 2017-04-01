@@ -6,24 +6,20 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/03/30 19:02:51 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/30 19:21:06 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/01 04:33:07 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include    "define/define.s"
 %include    "define/macro.s"
 
-section     .text
-    global  sym(ft_putendl_fd)  ; int   ft_putendl(char *s, int fd)
-    extern  sym(ft_putstr_fd)   ; int   ft_putstr(char *s, int fd)
+global  sym(ft_putendl_fd)
+extern  sym(ft_putstr_fd)
 
+section     .text
 
 sym(ft_putendl_fd):
     nop
-    push    rbp                 ; save rbp for the stack pointer
-    mov     rbp, rsp            ; backup the stack pointer into rbp
-    and     rsp, -0x10          ; align the stack to 16 bits
-
     push    rdi                 ; save rdi
     push    rsi                 ; save rsi
 
@@ -48,9 +44,6 @@ sym(ft_putendl_fd):
     inc     rax                 ; and increment it
 
 .end:
-    nop
-    mov     rsp, rbp            ; restore stack pointer
-    pop     rbp                 ; restore rbp
     ret
 
 section     .data
