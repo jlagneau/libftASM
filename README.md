@@ -14,7 +14,7 @@ To compile
 
 To test the library, run:
 
-    make test && ./tests/test
+    make test && ./test
 
 There's no make install. Copy the file manually if you need to.
 

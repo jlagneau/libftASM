@@ -6,71 +6,39 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 08:52:26 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/04/01 17:55:45 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/04/02 21:52:43 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 #include "test.h"
-#include "list_test.h"
 
-static int	print_function_name(char const *s)
+static int	print_help(void)
 {
-	PRINT("\033[33mTest ");
-	PRINT((char*)s);
-	PRINT("\033[0m");
-	return (0);
+	PRINTL("Usage: ./test [ft_cat [FILENAME]]");
+	return (1);
 }
 
-static int	init_tests(void)
+int			main(int argc, char *argv[])
 {
-	PRINTL("\033[32m===============\033[0m");
-	PRINTL("\033[32m Test libftASM\033[0m");
-	PRINTL("\033[32m===============\033[0m");
-	g_asserts = 0;
-	g_fails = 0;
-	return (0);
-}
-
-static int	print_result(int func)
-{
-	PRINTL("\033[32m===============\033[0m");
-	PRINTL("\033[32m    RESULT\033[0m");
-	PRINTL("\033[32m===============\033[0m");
-	PRINT("Fonction tested: \033[33m");
-	ft_putnbr(func);
-	PRINT("\033[0m\ntotal assertions: \033[32m");
-	ft_putnbr(g_asserts);
-	PRINT("\033[0m\nfailed assertions: \033[31m");
-	ft_putnbr(g_fails);
-	PRINTL("\033[0m");
-	return (g_fails);
-}
-
-int			main(void)
-{
-	int		i;
 	int		ret;
 
-
-	i = 0;
-	if (init_tests())
-		return (-1);
-	while (g_tests[i].name)
+	ret = 0;
+	if (argc == 1)
+		return (init_test());
+	else if (argc >= 2 && argc <= 3)
 	{
-		if (print_function_name(g_tests[i].name))
-			return (-1);
-		if ((ret = g_tests[i].func()))
+		if (ft_strcmp("ft_cat", argv[1]))
 		{
-			PRINTL("[\033[31mKO\033[0m]");
-			if (ret == -1)
-				return (-1);
+			ret = print_help();
+			return (ret);
 		}
+		if (argc == 2)
+			ret = ft_cat_test(0);
 		else
-			PRINTL("[\033[32mOK\033[0m]");
-		i++;
+			ret = ft_cat_test(argv[2]);
 	}
-	if (print_result(i))
-		return (g_fails);
+	else
+		(void)print_help();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/24 07:15:31 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/04/01 18:38:57 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/04/02 20:23:54 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ size_t	ft_strlen(const char *s);
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memcpy(void *d, const void *s, size_t n);
 char	*ft_strdup(const char *s);
+
+int		ft_cat(int fd);
 
 int		ft_putchar(char c);
 int		ft_putchar_fd(char c, int fd);

@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/04/01 16:06:36 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/04/02 22:43:41 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -80,6 +80,8 @@ redebug: fclean debug
 
 test: $(NAME)
 	make -C tests
+	@ln -s ./tests/test ./test
+	@ln -s ./tests/ft_cat.sh ./ft_cat
 
 all: $(NAME)
 
@@ -89,7 +91,7 @@ clean:
 
 fclean: clean
 	make -C tests fclean
-	$(RM) $(RMFLAGS) $(NAME) $(DEB_NAME) define/define.s
+	$(RM) $(RMFLAGS) $(NAME) $(DEB_NAME) ./test ./ft_cat
 
 re: fclean all
 

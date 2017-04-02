@@ -18,4 +18,4 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install nasm; fi
 
 script:
-  - make test && ./tests/test
+  - make test && ./test
