@@ -3,3 +3,5 @@
 define/define.s
 libfts.a
 libfts_debug.a
+test
+ft_cat
