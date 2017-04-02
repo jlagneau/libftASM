@@ -6,7 +6,7 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/31 20:48:21 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/03/29 20:39:17 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/02 22:58:07 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -24,4 +24,12 @@
 %define sym(x) x
 %else
 %define sym(x) _ %+ x
+%endif
+
+; addr()
+; Mach-O 64-bit format does not support 32-bit absolute addresses
+%ifdef ELF
+%define addr(x) [x]
+%else
+%define addr(x) [rel x]
 %endif
