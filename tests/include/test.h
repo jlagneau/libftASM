@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 09:05:56 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/04/01 17:44:30 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/04/02 20:18:29 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define TEST_H
 # include "assert_test.h"
 
+int		init_test(void);
 int		close_stdout(void);
 void	reopen_stdout(int fd);
 
@@ -32,6 +33,8 @@ int		ft_strlen_test(void);
 int		ft_memset_test(void);
 int		ft_memcpy_test(void);
 int		ft_strdup_test(void);
+
+int		ft_cat_test(const char *s);
 
 int		ft_putchar_test(void);
 int		ft_putstr_test(void);
