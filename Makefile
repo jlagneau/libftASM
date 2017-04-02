@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/04/01 16:06:36 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/04/02 04:46:21 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,6 +24,7 @@ CFLAGS    = -f
 DEPSFLAGS = -MD "$(DEPS_PATH)$(notdir $(@:.o=.d))"
 
 # Detect OS
+SHELL     := /bin/zsh
 UNAME_S   := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 OS_DEFINE := $(shell cp -n define/define_linux.s define/define.s)
@@ -89,7 +90,7 @@ clean:
 
 fclean: clean
 	make -C tests fclean
-	$(RM) $(RMFLAGS) $(NAME) $(DEB_NAME) define/define.s
+	$(RM) $(RMFLAGS) $(NAME) $(DEB_NAME)
 
 re: fclean all
 
