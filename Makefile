@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/04/02 22:41:24 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/04/02 22:43:41 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,7 +24,6 @@ CFLAGS    = -f
 DEPSFLAGS = -MD "$(DEPS_PATH)$(notdir $(@:.o=.d))"
 
 # Detect OS
-SHELL     := /usr/bin/env zsh
 UNAME_S   := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 OS_DEFINE := $(shell cp -n define/define_linux.s define/define.s)
