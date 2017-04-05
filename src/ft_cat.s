@@ -6,7 +6,7 @@
 ;    By: jlagneau </var/spool/mail/jlagneau>        +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/04/02 19:39:14 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/05 10:51:10 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/05 22:53:53 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
@@ -23,6 +23,7 @@ sym(ft_cat):
     nop
 
 .loop:
+    nop
     push    rdi                 ; backup rdi (file descriptor)
     mov     rsi, .buff          ; rsi = .buff
     mov     rdx, BUFF_SIZE      ; rdx = BUFF_SIZE
