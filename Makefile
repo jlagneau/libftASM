@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/04/02 22:43:41 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/04/05 10:11:42 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -18,7 +18,7 @@ OBJS_PATH = .obj/
 DEPS_PATH = .dep/
 
 SRCS_PATH = src/
-HEAD_PATH = includes/
+HEAD_PATH = include/
 
 CFLAGS    = -f
 DEPSFLAGS = -MD "$(DEPS_PATH)$(notdir $(@:.o=.d))"
@@ -27,7 +27,7 @@ DEPSFLAGS = -MD "$(DEPS_PATH)$(notdir $(@:.o=.d))"
 UNAME_S   := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 OS_DEFINE := $(shell cp -n define/define_linux.s define/define.s)
-CFLAGS    += elf64 -dELF
+CFLAGS    += elf64
 STRPFLAGS += --strip-unneeded
 endif
 ifeq ($(UNAME_S),Darwin)
@@ -80,8 +80,8 @@ redebug: fclean debug
 
 test: $(NAME)
 	make -C tests
-	@ln -s ./tests/test ./test
-	@ln -s ./tests/ft_cat.sh ./ft_cat
+	@ln -sf ./tests/test ./test
+	@ln -sf ./tests/ft_cat.sh ./ft_cat
 
 all: $(NAME)
 
