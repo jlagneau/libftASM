@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/24 07:15:31 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/04/02 20:23:54 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/04/05 23:13:07 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strcpy(char *d, const char *s);
 char	*ft_strnew(size_t n);
-char	*ft_strrepl(char *s, int (*f)(int));
+char	*ft_strmap(char *s, int (*f)(int));
 
 #endif
