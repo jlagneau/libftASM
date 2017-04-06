@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cat_test.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlagneau </var/spool/mail/jlagneau>        +#+  +:+       +#+        */
+/*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/02 20:17:46 by jlagneau          #+#    #+#             */
 /*   Updated: 2017/04/05 09:58:51 by jlagneau         ###   ########.fr       */

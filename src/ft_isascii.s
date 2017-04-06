@@ -10,9 +10,9 @@
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define.s"
+%include "depend/define.s"
 
-global  sym(ft_isascii)
+global sym(ft_isascii)
 
 section     .text
 

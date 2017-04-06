@@ -1,6 +1,6 @@
 # LibftASM
 
-[![Build Status](https://travis-ci.org/jlagneau/libftASM.svg?branch=master)](https://travis-ci.org/jlagneau/libftASM)
+[![Build Status][travis-img]][travis-src]
 
 :neckbeard: Another version of the Libft wrote in x86_64bits NASM assembly
 
@@ -18,8 +18,12 @@ To test the library, run:
 
 There's no make install. Copy the file manually if you need to.
 
-Read the Makefile for more informations.
+Read the Makefile or the [doc][project-doc] (in french) for more informations.
 
 ## License
 
 MIT
+
+[travis-img]:  https://travis-ci.org/jlagneau/libftASM.svg?branch=master
+[travis-src]:  https://travis-ci.org/jlagneau/libftASM
+[project-doc]: https://github.com/jlagneau/libftASM/blob/master/doc

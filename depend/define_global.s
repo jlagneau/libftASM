@@ -1,19 +1,20 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    define_linux.s                                     :+:      :+:    :+:    ;
+;    define_global.s                                    :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/10/31 20:46:54 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/05 10:10:49 by jlagneau         ###   ########.fr        ;
+;    Created: 2015/10/31 20:48:21 by jlagneau          #+#    #+#              ;
+;    Updated: 2017/04/06 07:53:49 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define_global.s"
+;; GLOBAL
+%ifndef DEFINE_GLOBAL_S
+%define DEFINE_GLOBAL_S
 
-;; LINUX
-SYS_READ    equ     0x00
-SYS_WRITE   equ     0x01
+STDOUT      equ     0x01
+EOL         equ     0x0a
 
-%define     sym(x)  x
+%endif

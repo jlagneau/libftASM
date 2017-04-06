@@ -1,6 +1,6 @@
 .obj/
 .dep/
-define/define.s
+depend/define.s
 libfts.a
 libfts_debug.a
 test

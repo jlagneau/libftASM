@@ -10,9 +10,9 @@
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define.s"
+%include "depend/define.s"
 
-global  sym(ft_memcpy)
+global sym(ft_memcpy)
 
 section     .text
 

@@ -1,15 +1,23 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    define_global.s                                    :+:      :+:    :+:    ;
+;    define_macosx.s                                    :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/10/31 20:48:21 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/05 10:11:10 by jlagneau         ###   ########.fr        ;
+;    Created: 2015/10/31 19:38:19 by jlagneau          #+#    #+#              ;
+;    Updated: 2017/04/06 08:09:14 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
-;; GLOBAL
-STDOUT      equ     0x01
-EOL         equ     0x0a
+;; MAC OS
+%ifndef DEFINE_MACOSX_S
+%define DEFINE_MACOSX_S
+%include "depend/define_global.s"
+
+SYS_READ    equ     0x2000003
+SYS_WRITE   equ     0x2000004
+
+%define     sym(x)  _ %+ x
+
+%endif

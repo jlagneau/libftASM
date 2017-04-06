@@ -3,15 +3,15 @@
 ;                                                         :::      ::::::::    ;
 ;    ft_cat.s                                           :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
-;    By: jlagneau </var/spool/mail/jlagneau>        +#+  +:+       +#+         ;
+;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/04/02 19:39:14 by jlagneau          #+#    #+#              ;
 ;    Updated: 2017/04/05 22:53:53 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define.s"
-%include "define/macro.s"
+%include "depend/define.s"
+%include "depend/macro.s"
 
 BUFF_SIZE   equ     4096
 

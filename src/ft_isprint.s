@@ -10,9 +10,9 @@
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define.s"
+%include "depend/define.s"
 
-global  sym(ft_isprint)
+global sym(ft_isprint)
 
 section     .text
 

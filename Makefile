@@ -6,7 +6,7 @@
 #    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/24 07:02:44 by jlagneau          #+#    #+#              #
-#    Updated: 2017/04/05 10:11:42 by jlagneau         ###   ########.fr        #
+#    Updated: 2017/04/06 08:10:40 by jlagneau         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -26,12 +26,12 @@ DEPSFLAGS = -MD "$(DEPS_PATH)$(notdir $(@:.o=.d))"
 # Detect OS
 UNAME_S   := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-OS_DEFINE := $(shell cp -n define/define_linux.s define/define.s)
+OS_DEFINE := $(shell ln -sf define_linux.s depend/define.s)
 CFLAGS    += elf64
 STRPFLAGS += --strip-unneeded
 endif
 ifeq ($(UNAME_S),Darwin)
-OS_DEFINE := $(shell cp -n define/define_macosx.s define/define.s)
+OS_DEFINE := $(shell ln -sf define_macosx.s depend/define.s)
 CFLAGS    += macho64
 STRPFLAGS += -x
 endif
