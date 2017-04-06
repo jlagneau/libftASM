@@ -10,12 +10,12 @@
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define.s"
+%include "depend/define.s"
 
-global  sym(ft_strdup)
-extern  sym(ft_strnew)
-extern  sym(ft_strlen)
-extern  sym(ft_strcpy)
+global sym(ft_strdup)
+extern sym(ft_strnew)
+extern sym(ft_strlen)
+extern sym(ft_strcpy)
 
 section     .text
 

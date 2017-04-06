@@ -10,11 +10,11 @@
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define.s"
+%include "depend/define.s"
 
-global  sym(ft_isalnum)
-extern  sym(ft_isalpha)
-extern  sym(ft_isdigit)
+global sym(ft_isalnum)
+extern sym(ft_isalpha)
+extern sym(ft_isdigit)
 
 section     .text
 

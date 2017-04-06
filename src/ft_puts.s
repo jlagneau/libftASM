@@ -6,15 +6,15 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/24 18:15:48 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/01 04:37:17 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/06 08:11:53 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
-%include    "define/define.s"
-%include    "define/macro.s"
+%include "depend/define.s"
+%include "depend/macro.s"
 
-global  sym(ft_puts)
-extern  sym(ft_putendl)
+global sym(ft_puts)
+extern sym(ft_putendl)
 
 section     .text
 

@@ -1,37 +1,23 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    macro.s                                            :+:      :+:    :+:    ;
+;    define_linux.s                                     :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2017/03/21 18:44:12 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/06 07:56:22 by jlagneau         ###   ########.fr        ;
+;    Created: 2015/10/31 20:46:54 by jlagneau          #+#    #+#              ;
+;    Updated: 2017/04/06 08:09:02 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define.s"
+;; LINUX
+%ifndef DEFINE_LINUX_S
+%define DEFINE_LINUX_S
+%include "depend/define_global.s"
 
-;; MACRO
-%ifndef MACRO_S
-%define MACRO_S
+SYS_READ    equ     0x00
+SYS_WRITE   equ     0x01
 
-; Implements the write system call
-%macro sys_write 3
-    mov   rax, SYS_WRITE
-    mov   rdi, %1
-    mov   rsi, %2
-    mov   rdx, %3
-    syscall
-%endmacro
-
-; Implements the read system call
-%macro sys_read 3
-    mov   rax, SYS_READ
-    mov   rdi, %1
-    mov   rsi, %2
-    mov   rdx, %3
-    syscall
-%endmacro
+%define     sym(x)  x
 
 %endif

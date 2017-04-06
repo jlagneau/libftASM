@@ -10,10 +10,10 @@
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define.s"
+%include "depend/define.s"
 
-global  sym(ft_putchar)
-extern  sym(ft_putchar_fd)
+global sym(ft_putchar)
+extern sym(ft_putchar_fd)
 
 section     .text
 

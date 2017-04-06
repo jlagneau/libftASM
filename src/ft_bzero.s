@@ -10,10 +10,10 @@
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define.s"
+%include "depend/define.s"
 
-global  sym(ft_bzero)
-extern  sym(ft_memset)
+global sym(ft_bzero)
+extern sym(ft_memset)
 
 section     .text
 

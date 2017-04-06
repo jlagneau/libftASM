@@ -1,24 +1,36 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    define_macosx.s                                    :+:      :+:    :+:    ;
+;    macro.s                                            :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/10/31 19:38:19 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/06 07:55:06 by jlagneau         ###   ########.fr        ;
+;    Created: 2017/03/21 18:44:12 by jlagneau          #+#    #+#              ;
+;    Updated: 2017/04/06 08:09:22 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define_global.s"
+;; MACRO
+%ifndef MACRO_S
+%define MACRO_S
+%include "depend/define.s"
 
-;; MAC OS
-%ifndef DEFINE_MACOSX_S
-%define DEFINE_MACOSX_S
+; Implements the write system call
+%macro sys_write 3
+    mov   rax, SYS_WRITE
+    mov   rdi, %1
+    mov   rsi, %2
+    mov   rdx, %3
+    syscall
+%endmacro
 
-SYS_READ    equ     0x2000003
-SYS_WRITE   equ     0x2000004
-
-%define     sym(x)  _ %+ x
+; Implements the read system call
+%macro sys_read 3
+    mov   rax, SYS_READ
+    mov   rdi, %1
+    mov   rsi, %2
+    mov   rdx, %3
+    syscall
+%endmacro
 
 %endif

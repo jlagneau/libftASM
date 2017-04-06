@@ -6,13 +6,13 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/30 01:50:18 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/01 04:48:23 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/06 08:11:28 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
-%include    "define/define.s"
+%include "depend/define.s"
 
-global  sym(ft_strlen)
+global sym(ft_strlen)
 
 section     .text
 

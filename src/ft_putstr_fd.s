@@ -10,11 +10,11 @@
 ;                                                                              ;
 ;******************************************************************************;
 
-%include "define/define.s"
-%include "define/macro.s"
+%include "depend/define.s"
+%include "depend/macro.s"
 
-global  sym(ft_putstr_fd)
-extern  sym(ft_strlen)
+global sym(ft_putstr_fd)
+extern sym(ft_strlen)
 
 section     .text
 
