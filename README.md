@@ -24,6 +24,6 @@ Read the Makefile or the [doc][project-doc] (in french) for more informations.
 
 MIT
 
-[travis-img]  : https://travis-ci.org/jlagneau/libftASM.svg?branch=master
-[travid-src]  : https://travis-ci.org/jlagneau/libftASM
-[project-doc] : https://github.com/jlagneau/libftASM/blob/master/doc
+[travis-img]:  https://travis-ci.org/jlagneau/libftASM.svg?branch=master
+[travis-src]:  https://travis-ci.org/jlagneau/libftASM
+[project-doc]: https://github.com/jlagneau/libftASM/blob/master/doc
