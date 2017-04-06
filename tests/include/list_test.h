@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 08:52:37 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/04/01 17:44:43 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/04/05 23:09:48 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_pair g_tests[] = {
 	{"ft_strcmp   ", ft_strcmp_test},
 	{"ft_strcpy   ", ft_strcpy_test},
 	{"ft_strnew   ", ft_strnew_test},
-	{"ft_strrepl  ", ft_strrepl_test},
+	{"ft_strmap   ", ft_strmap_test},
 	{0, 0}
 };
 

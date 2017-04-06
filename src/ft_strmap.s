@@ -1,45 +1,45 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_strrepl.s                                       :+:      :+:    :+:    ;
+;    ft_strmap.s                                        :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/04/01 01:59:32 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/01 04:51:17 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/05 23:11:38 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define.s"
 
-global	sym(ft_strrepl)
+global  sym(ft_strmap)
 
-section		.text
+section     .text
 
-sym(ft_strrepl):
+sym(ft_strmap):
     nop
-    xor		rcx, rcx            ; rcx = 0
-    xor		r8, r8              ; r8 = 0
+    xor     rcx, rcx            ; rcx = 0
+    xor     r8, r8              ; r8 = 0
 
 .loop:
     nop
-    mov		r8b, [rdi + rcx]    ; r8 = s[rcx]
+    mov     r8b, [rdi + rcx]    ; r8 = s[rcx]
 
-    test	r8, r8              ; if r8 == 0
-    jz		.end
+    test    r8, r8              ; if r8 == 0
+    jz      .end
 
-    push	rdi                 ; save rdi
-    mov		rdi, r8             ; put character in rdi
+    push    rdi                 ; save rdi
+    mov     rdi, r8             ; put character in rdi
 
-    call	rsi                 ; call function ptr
+    call    rsi                 ; call function ptr
 
-    pop		rdi                 ; restore rdi
+    pop     rdi                 ; restore rdi
 
-    mov		[rdi + rcx], al     ; s[rcx] = al (lower 8 bits of rax)
+    mov     [rdi + rcx], al     ; s[rcx] = al (lower 8 bits of rax)
 
-    inc		rcx
-    jmp		.loop
+    inc     rcx
+    jmp     .loop
 
 .end:
-    mov		rax, rdi            ; return original string ptr
+    mov     rax, rdi            ; return original string ptr
     ret

@@ -6,14 +6,14 @@
 ;    By: jlagneau </var/spool/mail/jlagneau>        +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/04/02 19:39:14 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/02 22:58:29 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/05 22:53:53 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define.s"
 %include "define/macro.s"
 
-BUFF_SIZE equ 4096
+BUFF_SIZE   equ     4096
 
 global sym(ft_cat)
 
@@ -23,24 +23,22 @@ sym(ft_cat):
     nop
 
 .loop:
+    nop
     push    rdi                 ; backup rdi (file descriptor)
-    lea     rsi, addr(.buff)    ; rsi = &.buff
+    mov     rsi, .buff          ; rsi = .buff
     mov     rdx, BUFF_SIZE      ; rdx = BUFF_SIZE
 
     sys_read rdi, rsi, rdx
 
-    test    rax, rax            ; if rax < 0
-    js      .end                ; return rax error if read failed (-1)
-
-    test    rax, rax            ; if rax == 0
-    jz      .success            ; EOF reached
+    cmp     rax, 0x00           ; if rax <= 0
+    jle     .end                ; read failed (-1) or EOF reached
 
     mov     rdx, rax            ; store read size into rdx
+    push    rdx                 ; backup read length
 
     sys_write STDOUT, rsi, rdx
 
-    test    rax, rax            ; if rax < 0
-    js      .end                ; return rax error if write failed (-1)
+    pop     rdx                 ; restore read length
 
     cmp     rax, rdx            ; if rax != rdx
     jne     .end                ; failed to write the appropriated size
@@ -48,13 +46,10 @@ sym(ft_cat):
     pop     rdi                 ; restore the file descriptor to read
     jmp     .loop
 
-.success:
-    mov     rax, 0x00
-
 .end:
-    pop     rdi
+    pop     rdi                 ; restore rdi
     ret
 
-section     .data
+section     .bss
 
-.buff times BUFF_SIZE db 0
+.buff resb BUFF_SIZE

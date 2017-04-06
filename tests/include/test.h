@@ -6,7 +6,7 @@
 /*   By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 09:05:56 by jlagneau          #+#    #+#             */
-/*   Updated: 2017/04/02 20:18:29 by jlagneau         ###   ########.fr       */
+/*   Updated: 2017/04/05 23:10:05 by jlagneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ int		ft_memcmp_test(void);
 int		ft_strcmp_test(void);
 int		ft_strcpy_test(void);
 int		ft_strnew_test(void);
-int		ft_strrepl_test(void);
+int		ft_strmap_test(void);
 
 #endif

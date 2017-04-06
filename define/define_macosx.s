@@ -6,12 +6,14 @@
 ;    By: jlagneau <jlagneau@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/10/31 19:38:19 by jlagneau          #+#    #+#              ;
-;    Updated: 2017/04/02 19:44:05 by jlagneau         ###   ########.fr        ;
+;    Updated: 2017/04/05 10:10:42 by jlagneau         ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 %include "define/define_global.s"
 
 ;; MAC OS
-%define SYS_READ		0x2000003
-%define SYS_WRITE       0x2000004
+SYS_READ    equ     0x2000003
+SYS_WRITE   equ     0x2000004
+
+%define     sym(x)  _ %+ x
